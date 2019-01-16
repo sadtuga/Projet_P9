@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z85-5E-2Ln">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Translate-->
+        <scene sceneID="hLU-We-UtN">
+            <objects>
+                <viewController id="Nie-qa-fst" customClass="TranslateViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m9s-2z-PjC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8Yp-6c-CDq"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Translate" image="Translate" id="uxT-nk-AJm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nXQ-Px-vzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93.599999999999994" y="429.53523238380814"/>
+        </scene>
+        <!--Exchange Rate-->
+        <scene sceneID="xAi-SQ-AZ3">
+            <objects>
+                <viewController id="1mv-nK-UHT" customClass="ExchangeRateViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OkA-mt-8TJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="aci-L5-D2k"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Exchange Rate" image="Dollar" id="9NB-L8-QZ2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5iw-1F-gcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93.599999999999994" y="-989.05547226386818"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="uVF-14-xMH">
+            <objects>
+                <tabBarController id="Z85-5E-2Ln" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="REY-6M-BNc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.11320751720227917" green="1" blue="0.18373231800820211" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.99963909387588501" green="1" blue="0.99975615739822388" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="1mv-nK-UHT" kind="relationship" relationship="viewControllers" id="T40-8G-qvu"/>
+                        <segue destination="Nie-qa-fst" kind="relationship" relationship="viewControllers" id="3z9-rP-CIN"/>
+                        <segue destination="db1-iX-30F" kind="relationship" relationship="viewControllers" id="GyC-DM-bn8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lPo-l2-v6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-858" y="-163"/>
+        </scene>
+        <!--Weather-->
+        <scene sceneID="Mot-cC-4i9">
+            <objects>
+                <viewController id="db1-iX-30F" customClass="WeatherViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xob-iM-Q3y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="tFY-GH-GSn"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Weather" image="weather" id="oxY-8P-0xc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D2v-iq-2xa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93.599999999999994" y="-256.82158920539734"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Dollar" width="25" height="25"/>
+        <image name="Translate" width="25" height="25"/>
+        <image name="weather" width="25" height="25"/>
+    </resources>
+</document>
