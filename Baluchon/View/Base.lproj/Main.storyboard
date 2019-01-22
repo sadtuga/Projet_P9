@@ -102,7 +102,7 @@
         <scene sceneID="xAi-SQ-AZ3">
             <objects>
                 <viewController id="1mv-nK-UHT" customClass="ExchangeRateViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OkA-mt-8TJ">
+                    <view key="view" contentMode="scaleToFill" id="OkA-mt-8TJ" customClass="ExchangeRateView" customModule="Baluchon" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -117,6 +117,9 @@
                                 <state key="normal" title="Convert">
                                     <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="convert" destination="1mv-nK-UHT" eventType="touchUpInside" id="JMH-Vd-3CB"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="T1P-j3-BKH" userLabel="Rate View">
                                 <rect key="frame" x="110" y="468" width="155" height="67"/>
@@ -138,28 +141,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="155" id="CxJ-Kg-Fed"/>
                                     <constraint firstAttribute="height" constant="67" id="kJD-Dz-zpo"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="urY-a2-zr5" userLabel="EUR View">
-                                <rect key="frame" x="16" y="98" width="225" height="33"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="ex: 25" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dzd-VO-tK5">
-                                        <rect key="frame" x="0.0" y="0.0" width="185" height="33"/>
-                                        <color key="backgroundColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BE-DS-p7w">
-                                        <rect key="frame" x="192" y="0.0" width="33" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="NBF-xv-ckQ"/>
-                                    <constraint firstAttribute="width" constant="225" id="ev1-ph-DdP"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="2IR-YN-TiG" userLabel="USD View">
@@ -184,8 +165,36 @@
                                     <constraint firstAttribute="height" constant="33" id="Yjk-4R-vaV"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="urY-a2-zr5" userLabel="EUR View">
+                                <rect key="frame" x="16" y="98" width="225" height="33"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="ex: 25" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dzd-VO-tK5">
+                                        <rect key="frame" x="0.0" y="0.0" width="185" height="33"/>
+                                        <color key="backgroundColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="185" id="kPb-J3-PXK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BE-DS-p7w">
+                                        <rect key="frame" x="192" y="0.0" width="33" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="NBF-xv-ckQ"/>
+                                    <constraint firstAttribute="width" constant="225" id="ev1-ph-DdP"/>
+                                </constraints>
+                            </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="3W2-n9-AlC">
+                                <rect key="frame" x="177.5" y="567.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="urZ-li-Z52" firstAttribute="centerX" secondItem="OkA-mt-8TJ" secondAttribute="centerX" id="B73-JM-uh4"/>
                             <constraint firstItem="2IR-YN-TiG" firstAttribute="top" secondItem="urY-a2-zr5" secondAttribute="bottom" constant="50" id="I4i-U3-kdV"/>
@@ -194,13 +203,28 @@
                             <constraint firstItem="urY-a2-zr5" firstAttribute="leading" secondItem="aci-L5-D2k" secondAttribute="leading" constant="16" id="Nkd-2w-lKJ"/>
                             <constraint firstItem="T1P-j3-BKH" firstAttribute="centerX" secondItem="OkA-mt-8TJ" secondAttribute="centerX" id="RZh-di-BFj"/>
                             <constraint firstItem="aci-L5-D2k" firstAttribute="bottom" secondItem="urZ-li-Z52" secondAttribute="bottom" constant="8" id="Zod-mk-cuI"/>
+                            <constraint firstItem="3W2-n9-AlC" firstAttribute="centerX" secondItem="urZ-li-Z52" secondAttribute="centerX" id="l8I-nT-urP"/>
                             <constraint firstItem="urY-a2-zr5" firstAttribute="top" secondItem="aci-L5-D2k" secondAttribute="top" constant="78" id="qea-ue-BCQ"/>
+                            <constraint firstItem="3W2-n9-AlC" firstAttribute="centerY" secondItem="urZ-li-Z52" secondAttribute="centerY" id="zeN-ZW-uUG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aci-L5-D2k"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="mrv-71-iI7" appends="YES" id="DgL-sN-xSm"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Exchange Rate" image="Dollar" id="9NB-L8-QZ2"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="3W2-n9-AlC" id="lwK-15-L2N"/>
+                        <outlet property="convertButton" destination="urZ-li-Z52" id="6SB-3L-CJJ"/>
+                        <outlet property="sum" destination="dzd-VO-tK5" id="eNA-bU-nOJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5iw-1F-gcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="mrv-71-iI7">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="1mv-nK-UHT" id="W58-dJ-YNx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="93.599999999999994" y="-989.05547226386818"/>
         </scene>
@@ -297,7 +321,7 @@
                                             <constraint firstAttribute="width" constant="65" id="eeg-4w-5gG"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wd-XI-hkI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wd-XI-hkI">
                                         <rect key="frame" x="0.0" y="70" width="65" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -381,7 +405,7 @@
                                             <constraint firstAttribute="height" constant="65" id="ROp-JU-ICb"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voh-oH-Doc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voh-oH-Doc">
                                         <rect key="frame" x="0.0" y="70" width="65" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>

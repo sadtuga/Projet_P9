@@ -9,22 +9,27 @@
 import UIKit
 
 class ExchangeRateViewController: UIViewController {
+    
+    @IBOutlet weak var convertButton: UIButton!
+    @IBOutlet weak var sum: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    var rateView = ExchangeRateView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        sum.resignFirstResponder()
     }
-    */
-
+    
+    @IBAction func convert() {
+        if sum.text == "" {
+            alert(title: "Erreur", message: "Aucun montant saisis")
+        } else {
+            convertButton.isHidden = true
+            activityIndicator.isHidden = false
+        }
+    }
 }
