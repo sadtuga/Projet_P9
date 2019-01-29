@@ -118,7 +118,7 @@
                                     <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="convert" destination="1mv-nK-UHT" eventType="touchUpInside" id="JMH-Vd-3CB"/>
+                                    <action selector="didTapeConvertButton" destination="1mv-nK-UHT" eventType="touchUpInside" id="fx0-RY-U1d"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="T1P-j3-BKH" userLabel="Rate View">
@@ -130,7 +130,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SN0-oc-RSy">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text=" " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SN0-oc-RSy">
                                         <rect key="frame" x="0.0" y="36" width="155" height="31"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="scrollIndicatorInsets" minX="97" minY="0.0" maxX="30" maxY="0.0"/>
@@ -146,7 +146,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="2IR-YN-TiG" userLabel="USD View">
                                 <rect key="frame" x="16" y="181" width="230" height="33"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9a-3B-Qif">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text=" " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9a-3B-Qif">
                                         <rect key="frame" x="0.0" y="0.0" width="188" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="scrollIndicatorInsets" minX="185" minY="0.0" maxX="33" maxY="0.0"/>
@@ -175,7 +175,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="185" id="kPb-J3-PXK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BE-DS-p7w">
                                         <rect key="frame" x="192" y="0.0" width="33" height="33"/>
@@ -216,6 +216,8 @@
                     <connections>
                         <outlet property="activityIndicator" destination="3W2-n9-AlC" id="lwK-15-L2N"/>
                         <outlet property="convertButton" destination="urZ-li-Z52" id="6SB-3L-CJJ"/>
+                        <outlet property="rate" destination="SN0-oc-RSy" id="hAe-y0-pOq"/>
+                        <outlet property="result" destination="t9a-3B-Qif" id="jZt-Sh-DWV"/>
                         <outlet property="sum" destination="dzd-VO-tK5" id="eNA-bU-nOJ"/>
                     </connections>
                 </viewController>

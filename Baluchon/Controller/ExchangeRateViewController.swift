@@ -14,8 +14,11 @@ class ExchangeRateViewController: UIViewController {
     @IBOutlet weak var sum: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var rateView = ExchangeRateView()
-
+    @IBOutlet weak var result: UITextView!
+    @IBOutlet weak var rate: UITextView!
+    
+    var currency = ExchangeRate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,12 +27,36 @@ class ExchangeRateViewController: UIViewController {
         sum.resignFirstResponder()
     }
     
-    @IBAction func convert() {
-        if sum.text == "" {
+    @IBAction func didTapeConvertButton() {
+        guard sum.text != "" else {
             alert(title: "Erreur", message: "Aucun montant saisis")
-        } else {
-            convertButton.isHidden = true
-            activityIndicator.isHidden = false
+            return
+        }
+        displayButton(button: true, activityIndicator: false)
+        currency.getRate { (success, rate) in
+            guard success == true else {
+                self.alert(title: "Erreur", message: "erreur reseau")
+                return
+            }
+            self.convert(rate: rate!)
         }
     }
+    
+    private func convert(rate: Float) {
+        let result = currency.convertCurrency(sum: sum.text!, rate: rate)
+        let convertedRate: String = currency.convertToString(value: rate)
+        refreshSreen(result: result, rate: convertedRate)
+        displayButton(button: false, activityIndicator: true)
+    }
+    
+    private func refreshSreen(result: String, rate: String) {
+        self.result.text = result
+        self.rate.text = rate
+    }
+    
+    private func displayButton(button: Bool, activityIndicator: Bool) {
+        convertButton.isHidden = button
+        self.activityIndicator.isHidden = activityIndicator
+    }
+    
 }
