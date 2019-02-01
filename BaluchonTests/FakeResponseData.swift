@@ -10,13 +10,19 @@ import Foundation
 
 class FakeResponseData {
     // MARK: - Data
-    static var rateCorrectData: Data? {
+    static var exchangeRateCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "Rate", withExtension: "json")!
         return try! Data(contentsOf: url)
     }
     
-    static let rateIncorrectData = "erreur".data(using: .utf8)!
+    static var translateCorrectData: Data? {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "Translate", withExtension: "json")!
+        return try! Data(contentsOf: url)
+    }
+    
+    static let IncorrectData = "erreur".data(using: .utf8)!
     
     // MARK: - Response
     static let responseOK = HTTPURLResponse(
@@ -29,6 +35,6 @@ class FakeResponseData {
     
     
     // MARK: - Error
-    class rateError: Error {}
-    static let error = rateError()
+    class testError: Error {}
+    static let error = testError()
 }

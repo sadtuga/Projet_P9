@@ -60,7 +60,7 @@ class ExchangeRateModelTestCase: XCTestCase {
     }
     
     func testGetRateShouldPostFailedCallbackIncorrectResponse() {
-        let exchangeRate = ExchangeRate(rateSession: URLSessionFake(data: FakeResponseData.rateCorrectData, response: FakeResponseData.responseKO, error: nil))
+        let exchangeRate = ExchangeRate(rateSession: URLSessionFake(data: FakeResponseData.exchangeRateCorrectData, response: FakeResponseData.responseKO, error: nil))
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         
         exchangeRate.getRate { (success, rate) in
@@ -73,7 +73,7 @@ class ExchangeRateModelTestCase: XCTestCase {
     }
     
     func testGetRateShouldPostFailedCallbackIncorrectData() {
-        let exchangeRate = ExchangeRate(rateSession: URLSessionFake(data: FakeResponseData.rateIncorrectData, response: FakeResponseData.responseOK, error: nil))
+        let exchangeRate = ExchangeRate(rateSession: URLSessionFake(data: FakeResponseData.IncorrectData, response: FakeResponseData.responseOK, error: nil))
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         
         exchangeRate.getRate { (success, rate) in
@@ -86,7 +86,7 @@ class ExchangeRateModelTestCase: XCTestCase {
     }
     
     func testGetRateShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
-        let exchangeRate = ExchangeRate(rateSession: URLSessionFake(data: FakeResponseData.rateCorrectData, response: FakeResponseData.responseOK, error: nil))
+        let exchangeRate = ExchangeRate(rateSession: URLSessionFake(data: FakeResponseData.exchangeRateCorrectData, response: FakeResponseData.responseOK, error: nil))
         let expectation = XCTestExpectation(description: "Wait for queue change.")
        
         exchangeRate.getRate { (success, rate) in

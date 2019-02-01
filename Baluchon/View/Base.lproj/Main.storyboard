@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="27.5" width="243" height="129.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textView>
                                 </subviews>
                                 <constraints>
@@ -68,20 +68,33 @@
                                 <state key="normal" title="Translate">
                                     <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapeTranslateButton:" destination="Nie-qa-fst" eventType="touchUpInside" id="XRc-ji-pwr"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8Z-jU-y0B">
                                 <rect key="frame" x="66.5" y="392.5" width="242" height="129.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="m8Z-jU-y0B" secondAttribute="height" multiplier="243:130" id="yQZ-zv-08H"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Nie-qa-fst" id="5ef-V6-Kun"/>
+                                    <outlet property="delegate" destination="Nie-qa-fst" id="zmq-0Q-r1T"/>
+                                </connections>
                             </pickerView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="7ha-xi-LcW">
+                                <rect key="frame" x="177.5" y="564.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="cXl-hs-PZ3" firstAttribute="leading" secondItem="8Yp-6c-CDq" secondAttribute="leading" constant="67" id="6VR-Pd-edX"/>
                             <constraint firstItem="N7r-hM-tuc" firstAttribute="leading" secondItem="8Yp-6c-CDq" secondAttribute="leading" constant="66.5" id="6eC-6P-t7M"/>
+                            <constraint firstItem="7ha-xi-LcW" firstAttribute="centerY" secondItem="Fsc-SI-rwN" secondAttribute="centerY" id="9RZ-oV-34v"/>
                             <constraint firstItem="Fsc-SI-rwN" firstAttribute="centerX" secondItem="m9s-2z-PjC" secondAttribute="centerX" id="Icq-d5-fnt"/>
                             <constraint firstItem="N7r-hM-tuc" firstAttribute="top" secondItem="cXl-hs-PZ3" secondAttribute="bottom" constant="20" id="NJB-HW-sbq"/>
+                            <constraint firstItem="7ha-xi-LcW" firstAttribute="centerX" secondItem="Fsc-SI-rwN" secondAttribute="centerX" id="OVM-cz-yr6"/>
                             <constraint firstItem="cXl-hs-PZ3" firstAttribute="top" secondItem="8Yp-6c-CDq" secondAttribute="top" constant="20" id="Pe8-hi-Hrm"/>
                             <constraint firstItem="Fsc-SI-rwN" firstAttribute="top" secondItem="m8Z-jU-y0B" secondAttribute="bottom" constant="20" id="TZh-Ll-N3e"/>
                             <constraint firstItem="8Yp-6c-CDq" firstAttribute="trailing" secondItem="N7r-hM-tuc" secondAttribute="trailing" constant="65.5" id="WiA-YK-HAa"/>
@@ -91,10 +104,25 @@
                             <constraint firstItem="m8Z-jU-y0B" firstAttribute="centerX" secondItem="m9s-2z-PjC" secondAttribute="centerX" id="ulQ-uM-0rf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Yp-6c-CDq"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="5Ti-2m-JHx" appends="YES" id="ZLa-5y-koJ"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Translate" image="Translate" id="uxT-nk-AJm"/>
+                    <connections>
+                        <outlet property="UIPicker" destination="m8Z-jU-y0B" id="HXd-EF-Nby"/>
+                        <outlet property="activityIndicator" destination="7ha-xi-LcW" id="iQe-FA-4Uj"/>
+                        <outlet property="text" destination="gQz-KF-ZAm" id="3dW-kZ-pbk"/>
+                        <outlet property="translateButton" destination="Fsc-SI-rwN" id="9YR-IL-fKI"/>
+                        <outlet property="translation" destination="KSI-ZS-nty" id="5iD-ZM-HG4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXQ-Px-vzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5Ti-2m-JHx">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="Nie-qa-fst" id="fBU-ld-cN4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="93.599999999999994" y="429.53523238380814"/>
         </scene>

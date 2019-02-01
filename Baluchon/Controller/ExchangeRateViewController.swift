@@ -17,7 +17,7 @@ class ExchangeRateViewController: UIViewController {
     @IBOutlet weak var result: UITextView!
     @IBOutlet weak var rate: UITextView!
     
-    var currency = ExchangeRate()
+    private var currency = ExchangeRate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
