@@ -19,10 +19,6 @@ class ExchangeRateViewController: UIViewController {
     
     private var currency = ExchangeRate()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         sum.resignFirstResponder()
     }
