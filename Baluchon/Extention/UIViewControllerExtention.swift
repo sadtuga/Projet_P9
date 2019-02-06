@@ -16,4 +16,8 @@ extension UIViewController {
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
     }
+    
+    func convertToString(value: Float) -> String {
+        return String(value)
+    }
 }

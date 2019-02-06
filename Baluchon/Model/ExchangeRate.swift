@@ -35,7 +35,6 @@ class ExchangeRate {
                 }
                 guard let responseJSON = try? JSONDecoder().decode(Currency.self, from: data),
                     let rate = responseJSON.rates["USD"] else {
-                        print("Erreur")
                         callback(false, nil)
                         return
                 }

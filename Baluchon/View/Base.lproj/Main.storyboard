@@ -307,13 +307,13 @@
                                     <constraint firstAttribute="width" constant="125" id="boz-lS-rNI"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PartialyCloudy" translatesAutoresizingMaskIntoConstraints="NO" id="7yh-4G-yy3">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PartialyCloudy" translatesAutoresizingMaskIntoConstraints="NO" id="7yh-4G-yy3">
                                 <rect key="frame" x="294" y="105" width="65" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7yh-4G-yy3" secondAttribute="height" multiplier="1:1" id="9xD-TT-L63"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NsG-WA-iBL" userLabel="Info">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NsG-WA-iBL" userLabel="Info">
                                 <rect key="frame" x="94.5" y="367" width="186" height="135"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="3EJ-TW-OhT" userLabel="Temp">
@@ -335,9 +335,15 @@
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Wind" translatesAutoresizingMaskIntoConstraints="NO" id="vTb-wl-ZFO">
                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="65" id="jYU-Ks-ctC"/>
+                                                </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="210km/h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVo-qk-GrT">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="210km/h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVo-qk-GrT">
                                                 <rect key="frame" x="89" y="0.0" width="97" height="65"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="97" id="AZJ-c6-Mna"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -357,11 +363,14 @@
                                 <state key="normal" title="Weather forecast">
                                     <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapeWeatherForecastButton:" destination="db1-iX-30F" eventType="touchUpInside" id="0uf-ZO-rc1"/>
+                                </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="T9j-VS-fJr">
                                 <rect key="frame" x="177.5" y="558.5" width="20" height="20"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partialy Cloudy       " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-Tm-QlX">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partialy Cloudy       " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-Tm-QlX">
                                 <rect key="frame" x="61" y="178" width="253.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="253.5" id="jT8-86-WML"/>
@@ -373,6 +382,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="T9j-VS-fJr" firstAttribute="centerX" secondItem="TBU-uJ-XVy" secondAttribute="centerX" id="1nl-dA-NxX"/>
                             <constraint firstItem="8Kf-Tm-QlX" firstAttribute="centerX" secondItem="xob-iM-Q3y" secondAttribute="centerX" id="2VV-vl-Y5I"/>
@@ -388,10 +398,28 @@
                             <constraint firstItem="tFY-GH-GSn" firstAttribute="trailing" secondItem="7yh-4G-yy3" secondAttribute="trailing" constant="16" id="zCZ-GA-IhJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tFY-GH-GSn"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="wpK-1i-YXC" appends="YES" id="2r2-r4-r2h"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="weather" id="oxY-8P-0xc"/>
+                    <connections>
+                        <outlet property="Destination" destination="Ved-Oj-99X" id="Fxd-Wg-7PA"/>
+                        <outlet property="activityIndicator" destination="T9j-VS-fJr" id="NbC-T5-nI7"/>
+                        <outlet property="descriptionWeather" destination="8Kf-Tm-QlX" id="JyY-Su-aR6"/>
+                        <outlet property="forecastButton" destination="TBU-uJ-XVy" id="bBc-wA-8uh"/>
+                        <outlet property="iconWeather" destination="7yh-4G-yy3" id="0GI-k7-XWX"/>
+                        <outlet property="info" destination="NsG-WA-iBL" id="SR4-ra-KuQ"/>
+                        <outlet property="temp" destination="kXQ-8O-zP3" id="Gfj-8K-5Wu"/>
+                        <outlet property="wind" destination="KVo-qk-GrT" id="dMM-jO-cT9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2v-iq-2xa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="wpK-1i-YXC">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="db1-iX-30F" id="t08-p5-ZRI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="784.79999999999995" y="-163.26836581709148"/>
         </scene>

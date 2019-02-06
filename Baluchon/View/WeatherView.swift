@@ -9,13 +9,5 @@
 import UIKit
 
 class WeatherView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+    static let icon: [String: UIImage] = ["Mist": #imageLiteral(resourceName: "Mist"), "Clouds": #imageLiteral(resourceName: "Cloudy"), "Lighting": #imageLiteral(resourceName: "Lighting"), "Rain": #imageLiteral(resourceName: "Rainy"), "Snow": #imageLiteral(resourceName: "Snow"), "Clear": #imageLiteral(resourceName: "Sunny"), "Fog": #imageLiteral(resourceName: "Mist")]
 }
