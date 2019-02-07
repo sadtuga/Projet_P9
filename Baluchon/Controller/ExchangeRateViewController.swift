@@ -12,7 +12,8 @@ class ExchangeRateViewController: UIViewController {
     
     @IBOutlet weak var convertButton: UIButton!
     @IBOutlet weak var sum: UITextField!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var rateActivityIndicator: UIActivityIndicatorView!
+    
     
     @IBOutlet weak var result: UITextView!
     @IBOutlet weak var rate: UITextView!
@@ -28,7 +29,7 @@ class ExchangeRateViewController: UIViewController {
             alert(title: "Erreur", message: "Aucun montant saisis")
             return
         }
-        displayButton(button: true, activityIndicator: false)
+        hideButton(button: convertButton, activityIndicator: rateActivityIndicator)
         currency.getRate { (success, rate) in
             guard success == true else {
                 self.alert(title: "Erreur", message: "erreur reseau")
@@ -39,20 +40,19 @@ class ExchangeRateViewController: UIViewController {
     }
     
     private func convert(rate: Float) {
-        let result = currency.convertCurrency(sum: sum.text!, rate: rate)
-        let convertedRate: String = currency.convertToString(value: rate)
-        refreshSreen(result: result, rate: convertedRate)
-        displayButton(button: false, activityIndicator: true)
+        let result = convertCurrency(sum: sum.text!, rate: rate)
+        let convertedRate: String = convertToString(value: rate)
+        refreshScreen(text: result, textView: self.result)
+        refreshScreen(text: convertedRate, textView: self.rate)
+        displayButton(button: convertButton, activityIndicator: rateActivityIndicator)
     }
     
-    private func refreshSreen(result: String, rate: String) {
-        self.result.text = result
-        self.rate.text = rate
-    }
-    
-    private func displayButton(button: Bool, activityIndicator: Bool) {
-        convertButton.isHidden = button
-        self.activityIndicator.isHidden = activityIndicator
+    private func convertCurrency(sum: String, rate: Float) -> String {
+        let convertedSum: Float = currency.convert(sum: sum)
+        guard convertedSum != 0 else {
+            return "0"
+        }
+        return convertToString(value: convertedSum * rate)
     }
     
 }

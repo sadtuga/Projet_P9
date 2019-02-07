@@ -20,4 +20,19 @@ extension UIViewController {
     func convertToString(value: Float) -> String {
         return String(value)
     }
+    
+    func displayButton(button: UIButton, activityIndicator: UIActivityIndicatorView) {
+        button.isHidden =  false
+        activityIndicator.isHidden = true
+        
+    }
+    
+    func hideButton(button: UIButton, activityIndicator: UIActivityIndicatorView) {
+        button.isHidden =  true
+        activityIndicator.isHidden = false
+    }
+    
+    func refreshScreen(text: String, textView: UITextView) {
+        textView.text = text
+    }
 }

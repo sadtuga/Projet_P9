@@ -44,15 +44,7 @@ class ExchangeRate {
         task?.resume()
     }
     
-    func convertCurrency(sum: String, rate: Float) -> String {//
-        let convertedSum: Float = convert(sum: sum)
-        guard convertedSum != 0 else {
-            return "0"
-        }
-        return convertToString(value: convertedSum * rate)
-    }
-    
-    private func convert(sum: String) -> Float {
+    func convert(sum: String) -> Float {
         var convertibleSum: String = sum
         if convertibleSum.contains(",") == true {
             convertibleSum = convertPunctuation(sum: sum)
@@ -71,10 +63,6 @@ class ExchangeRate {
         let indexToDelete = buffer.index(after: index!)
         buffer.remove(at: indexToDelete)
         return buffer
-    }
-    
-    func convertToString(value: Float) -> String {
-        return String(value)
     }
     
 }

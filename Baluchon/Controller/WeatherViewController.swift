@@ -15,7 +15,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var descriptionWeather: UILabel!
     @IBOutlet weak var info: UIStackView!
     @IBOutlet weak var forecastButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var weatherActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var temp: UILabel!
     @IBOutlet weak var wind: UILabel!
     
@@ -31,7 +31,7 @@ class WeatherViewController: UIViewController {
             return
         }
         
-        displayButton(button: true, activityIndicator: false)
+        hideButton(button: forecastButton, activityIndicator: weatherActivityIndicator)
         
         weather.getWeather(city: destination.text!) { (success, weather) in
             if success == true {
@@ -41,7 +41,7 @@ class WeatherViewController: UIViewController {
             }
         }
         
-        displayButton(button: false, activityIndicator: true)
+        displayButton(button: forecastButton, activityIndicator: weatherActivityIndicator)
         
     }
     
@@ -54,11 +54,6 @@ class WeatherViewController: UIViewController {
         iconWeather.isHidden = false
         iconWeather.image = WeatherView.icon[weather.weather[0].main]
     }
-    
-    private func displayButton(button: Bool, activityIndicator: Bool) {
-        forecastButton.isHidden = button
-        self.activityIndicator.isHidden = activityIndicator
-    }
-    
+
 }
 

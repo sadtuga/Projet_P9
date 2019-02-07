@@ -111,8 +111,8 @@
                     <tabBarItem key="tabBarItem" title="Translate" image="Translate" id="uxT-nk-AJm"/>
                     <connections>
                         <outlet property="UIPicker" destination="m8Z-jU-y0B" id="HXd-EF-Nby"/>
-                        <outlet property="activityIndicator" destination="7ha-xi-LcW" id="iQe-FA-4Uj"/>
                         <outlet property="text" destination="gQz-KF-ZAm" id="3dW-kZ-pbk"/>
+                        <outlet property="translateActivityIndicator" destination="7ha-xi-LcW" id="Npc-G2-6fa"/>
                         <outlet property="translateButton" destination="Fsc-SI-rwN" id="9YR-IL-fKI"/>
                         <outlet property="translation" destination="KSI-ZS-nty" id="5iD-ZM-HG4"/>
                     </connections>
@@ -242,9 +242,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Exchange Rate" image="Dollar" id="9NB-L8-QZ2"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="3W2-n9-AlC" id="lwK-15-L2N"/>
                         <outlet property="convertButton" destination="urZ-li-Z52" id="6SB-3L-CJJ"/>
                         <outlet property="rate" destination="SN0-oc-RSy" id="hAe-y0-pOq"/>
+                        <outlet property="rateActivityIndicator" destination="3W2-n9-AlC" id="hzd-rc-AbF"/>
                         <outlet property="result" destination="t9a-3B-Qif" id="jZt-Sh-DWV"/>
                         <outlet property="sum" destination="dzd-VO-tK5" id="eNA-bU-nOJ"/>
                     </connections>
@@ -405,12 +405,12 @@
                     <tabBarItem key="tabBarItem" title="Weather" image="weather" id="oxY-8P-0xc"/>
                     <connections>
                         <outlet property="Destination" destination="Ved-Oj-99X" id="Fxd-Wg-7PA"/>
-                        <outlet property="activityIndicator" destination="T9j-VS-fJr" id="NbC-T5-nI7"/>
                         <outlet property="descriptionWeather" destination="8Kf-Tm-QlX" id="JyY-Su-aR6"/>
                         <outlet property="forecastButton" destination="TBU-uJ-XVy" id="bBc-wA-8uh"/>
                         <outlet property="iconWeather" destination="7yh-4G-yy3" id="0GI-k7-XWX"/>
                         <outlet property="info" destination="NsG-WA-iBL" id="SR4-ra-KuQ"/>
                         <outlet property="temp" destination="kXQ-8O-zP3" id="Gfj-8K-5Wu"/>
+                        <outlet property="weatherActivityIndicator" destination="T9j-VS-fJr" id="TNd-T9-rdI"/>
                         <outlet property="wind" destination="KVo-qk-GrT" id="dMM-jO-cT9"/>
                     </connections>
                 </viewController>
