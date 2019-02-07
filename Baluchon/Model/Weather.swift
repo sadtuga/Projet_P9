@@ -10,7 +10,7 @@ import Foundation
 
 
 class WeatherService {
-
+    
     private var weatherSession: URLSession
     private var task: URLSessionDataTask?
     
@@ -19,9 +19,10 @@ class WeatherService {
     }
     
     func getWeather(city: String, callback: @escaping (Bool, WeatherInfo?) -> Void) {
-        let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(city)" + "&APPID=c36ebc3d6679d56f96c5f0ae011af988&units=metric")!
         task?.cancel()
-        task = weatherSession.dataTask(with: url) { (data, response, error) in
+        let encodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(encodedCity)&APPID=c36ebc3d6679d56f96c5f0ae011af988&units=metric")!
+            task = weatherSession.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(false, nil)
