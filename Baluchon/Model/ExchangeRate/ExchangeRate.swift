@@ -12,14 +12,13 @@ import Foundation
 
 class ExchangeRate {
     
-    private var url = URL(string: "http://data.fixer.io/api/latest?access_key=267465fe1f169299d11355d4acffc4e5&base=EUR&symbols=USD")!
+    private let url = URL(string: "http://data.fixer.io/api/latest?access_key=267465fe1f169299d11355d4acffc4e5&base=EUR&symbols=USD")!
     private var rateSession: URLSession
     private var task: URLSessionDataTask?
     
     init(rateSession: URLSession = URLSession(configuration: .default)) {
         self.rateSession = rateSession
     }
-    
     
     func getRate(callback: @escaping (Bool, Float?) -> Void) {
         task?.cancel()

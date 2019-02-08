@@ -14,7 +14,6 @@ class ExchangeRateViewController: UIViewController {
     @IBOutlet weak var sum: UITextField!
     @IBOutlet weak var rateActivityIndicator: UIActivityIndicatorView!
     
-    
     @IBOutlet weak var result: UITextView!
     @IBOutlet weak var rate: UITextView!
     
