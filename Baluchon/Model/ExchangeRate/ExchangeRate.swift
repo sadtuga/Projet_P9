@@ -12,14 +12,15 @@ import Foundation
 
 class ExchangeRate {
     
-    private let url = URL(string: "http://data.fixer.io/api/latest?access_key=267465fe1f169299d11355d4acffc4e5&base=EUR&symbols=USD")!
-    private var rateSession: URLSession
-    private var task: URLSessionDataTask?
+    private let url = URL(string: "http://data.fixer.io/api/latest?access_key=267465fe1f169299d11355d4acffc4e5&base=EUR&symbols=USD")! // Stock the URL of the API
+    private var rateSession: URLSession   // Stock a URLSessions
+    private var task: URLSessionDataTask? // Stock a URLSessionsDataTask
     
     init(rateSession: URLSession = URLSession(configuration: .default)) {
         self.rateSession = rateSession
     }
     
+    // Send a request to the Fixer.io API and return this response
     func getRate(callback: @escaping (Bool, Float?) -> Void) {
         task?.cancel()
         task = rateSession.dataTask(with: url) { (data, response, error) in
@@ -43,6 +44,7 @@ class ExchangeRate {
         task?.resume()
     }
     
+    // Convert the received parameter to a float
     func convert(sum: String) -> Float {
         var convertibleSum: String = sum
         if convertibleSum.contains(",") == true {
@@ -55,6 +57,7 @@ class ExchangeRate {
         }
     }
     
+    // Convert a comma to a point
     private func convertPunctuation(sum: String) -> String {
         var buffer = sum
         let index = sum.firstIndex(of: ",")

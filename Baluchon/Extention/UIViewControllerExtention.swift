@@ -10,6 +10,7 @@ import UIKit
 
 extension UIViewController {
     
+    // Show a custom alert based on title and message received
     func alert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style:.default, handler: nil)
@@ -17,21 +18,25 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    // Convert the received parameter to a string
     func convertToString(value: Float) -> String {
         return String(value)
     }
     
+    // Display the received UIButton and hide the UIActivityIndicatorView
     func displayButton(button: UIButton, activityIndicator: UIActivityIndicatorView) {
         button.isHidden =  false
         activityIndicator.isHidden = true
         
     }
     
+    // Display the UIActivityIndicatorView and hide the UIButton received
     func hideButton(button: UIButton, activityIndicator: UIActivityIndicatorView) {
         button.isHidden =  true
         activityIndicator.isHidden = false
     }
     
+    // Applies the text received to a UITextView
     func refreshScreen(text: String, textView: UITextView) {
         textView.text = text
     }

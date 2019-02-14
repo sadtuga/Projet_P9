@@ -19,12 +19,14 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var temp: UILabel!
     @IBOutlet weak var wind: UILabel!
     
-    var weather = WeatherService()
+    var weather = WeatherService() // Stock the instance of the WeatherService class
     
+    // Removes the keyboard and stores the text entered in the destination variable
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         destination.resignFirstResponder()
     }
     
+    // Manages the data received by the API
     @IBAction func didTapeWeatherForecastButton(_ sender: Any) {
         guard let city = destination.text, city != "" else {
             alert(title: "Erreur", message: "Aucune destination saisis")
@@ -45,6 +47,7 @@ class WeatherViewController: UIViewController {
         
     }
     
+    // Shows weather information
     private func refreshScreen(weather: WeatherInfo) {
         info.isHidden = false
         temp.text = convertToString(value: weather.main.temp) + "°C"

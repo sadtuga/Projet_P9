@@ -16,13 +16,15 @@ class TranslateViewController: UIViewController {
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var translateActivityIndicator: UIActivityIndicatorView!
     
-    private var translate = Translate()
-    private var index: Int = 0
+    private var translate = Translate() // Stock the instance of the Translate class
+    private var index: Int = 0 // Stock index of UIPickerView
     
+    // Removes the keyboard and stores the text entered in the text variable
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         text.resignFirstResponder()
     }
 
+    // Manages the data received by the API
     @IBAction func didTapeTranslateButton(_ sender: Any) {
         index = UIPicker.selectedRow(inComponent: 0)
         hideButton(button: translateButton, activityIndicator: translateActivityIndicator)
@@ -39,14 +41,18 @@ class TranslateViewController: UIViewController {
 }
 
 extension TranslateViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    // Returns the column number of the UIPickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
+    // Returns the number of lines in the UIPickerView
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return language.count
     }
     
+    // Returns the value corresponding to the request line of UIPickerView
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return language[row]
     }

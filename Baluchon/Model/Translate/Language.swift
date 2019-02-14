@@ -8,6 +8,7 @@
 
 import Foundation
 
+// The structure of this file makes it possible to store the Google Translate API data
 struct Translation: Decodable {
     let data: TranslationData
 }
@@ -20,4 +21,4 @@ struct TranslationText: Decodable {
     let translatedText: String?
 }
 
-let language: [String] = ["Français > Anglais", "Anglais > Français", "Detection > Français"]
+let language: [String] = ["Français > Anglais", "Anglais > Français", "Detection > Français"] // Stock the different value of UIPickerView

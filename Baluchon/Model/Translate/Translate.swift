@@ -10,17 +10,18 @@ import Foundation
 
 class Translate {
     
-    private var url = URL(string: "https://translation.googleapis.com/language/translate/v2?")!
-    private var translateSession: URLSession
-    private var task: URLSessionDataTask?
+    private var url = URL(string: "https://translation.googleapis.com/language/translate/v2?")! // Stock the URL of the API
+    private var translateSession: URLSession // Stock a URLSessions
+    private var task: URLSessionDataTask? // Stock a URLSessionsDataTask
     
-    private var source: String = "fr"
-    private var target: String = "en"
+    private var source: String = "fr" // Source message language
+    private var target: String = "en" // Target message language
     
     init(translateSession: URLSession = URLSession(configuration: .default)) {
         self.translateSession = translateSession
     }
     
+    // Send a request to the Google Translate API and return this response
     func translate(Index: Int, text: String, callback: @escaping (Bool, String?) -> Void) {
         let request = createTranslateRequest(text: text, language: Index)
         task?.cancel()
@@ -46,6 +47,7 @@ class Translate {
         task?.resume()
     }
     
+    // Create a request based on the received parameter
     private func createTranslateRequest(text: String, language: Int) -> URLRequest? {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -58,6 +60,7 @@ class Translate {
         return request
     }
     
+    // Modify source and target according to received index
     private func selectedLanguage(language: Int) {
         switch language {
         case 0:

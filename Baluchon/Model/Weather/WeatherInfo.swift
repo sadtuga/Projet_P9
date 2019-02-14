@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+// The structure of this file makes it possible to store the OpenWeatherMap API data
 struct WeatherInfo: Decodable {
     let weather: [Weather]
     let main: Main

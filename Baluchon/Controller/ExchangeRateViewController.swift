@@ -17,12 +17,14 @@ class ExchangeRateViewController: UIViewController {
     @IBOutlet weak var result: UITextView!
     @IBOutlet weak var rate: UITextView!
     
-    private var currency = ExchangeRate()
+    private var currency = ExchangeRate() // Stock the instance of the ExchangeRate class
     
+    // Removes the keyboard and stores the text entered in the sum variable
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         sum.resignFirstResponder()
     }
     
+    // Manages the data received by the API
     @IBAction func didTapeConvertButton() {
         guard sum.text != "" else {
             alert(title: "Erreur", message: "Aucun montant saisis")
@@ -38,6 +40,7 @@ class ExchangeRateViewController: UIViewController {
         }
     }
     
+    // Displays the result of the conversion
     private func convert(rate: Float) {
         let result = convertCurrency(sum: sum.text!, rate: rate)
         let convertedRate: String = convertToString(value: rate)
@@ -46,6 +49,7 @@ class ExchangeRateViewController: UIViewController {
         displayButton(button: convertButton, activityIndicator: rateActivityIndicator)
     }
     
+    // Returns the result of the euro dollar conversion as a character string
     private func convertCurrency(sum: String, rate: Float) -> String {
         let convertedSum: Float = currency.convert(sum: sum)
         guard convertedSum != 0 else {

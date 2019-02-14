@@ -8,8 +8,7 @@
 
 import Foundation
 
+// Stock give them from the Fixer.io API
 struct Currency: Decodable {
-    
     let rates: [String: Float]
-
 }
