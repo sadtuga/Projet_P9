@@ -354,7 +354,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex: Paris" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-Oj-99X">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex: Paris" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-Oj-99X">
                                                 <rect key="frame" x="0.0" y="25.5" width="125" height="27"/>
                                                 <color key="backgroundColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
@@ -451,7 +451,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex: Londre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1HK-I8-bky">
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex: Londre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1HK-I8-bky">
                                                 <rect key="frame" x="0.0" y="25.5" width="125" height="27"/>
                                                 <color key="backgroundColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
@@ -559,14 +559,20 @@
                     <tabBarItem key="tabBarItem" title="Weather" image="weather" id="oxY-8P-0xc"/>
                     <navigationItem key="navigationItem" title="Weather" id="xr1-HQ-IK7"/>
                     <connections>
-                        <outlet property="Destination" destination="Ved-Oj-99X" id="Fxd-Wg-7PA"/>
-                        <outlet property="descriptionWeather" destination="8Kf-Tm-QlX" id="JyY-Su-aR6"/>
                         <outlet property="forecastButton" destination="TBU-uJ-XVy" id="bBc-wA-8uh"/>
-                        <outlet property="iconWeather" destination="7yh-4G-yy3" id="0GI-k7-XWX"/>
-                        <outlet property="info" destination="NsG-WA-iBL" id="SR4-ra-KuQ"/>
-                        <outlet property="temp" destination="kXQ-8O-zP3" id="Gfj-8K-5Wu"/>
                         <outlet property="weatherActivityIndicator" destination="T9j-VS-fJr" id="TNd-T9-rdI"/>
-                        <outlet property="wind" destination="KVo-qk-GrT" id="dMM-jO-cT9"/>
+                        <outletCollection property="destination" destination="Ved-Oj-99X" collectionClass="NSMutableArray" id="rvD-6j-JPH"/>
+                        <outletCollection property="iconWeather" destination="7yh-4G-yy3" collectionClass="NSMutableArray" id="czs-zE-xaM"/>
+                        <outletCollection property="descriptionWeather" destination="8Kf-Tm-QlX" collectionClass="NSMutableArray" id="tQH-RY-6EI"/>
+                        <outletCollection property="info" destination="NsG-WA-iBL" collectionClass="NSMutableArray" id="O5d-8e-aNH"/>
+                        <outletCollection property="temp" destination="kXQ-8O-zP3" collectionClass="NSMutableArray" id="4a7-Xd-Hua"/>
+                        <outletCollection property="wind" destination="KVo-qk-GrT" collectionClass="NSMutableArray" id="EVQ-TB-viX"/>
+                        <outletCollection property="destination" destination="1HK-I8-bky" collectionClass="NSMutableArray" id="NKo-Om-1du"/>
+                        <outletCollection property="temp" destination="OTB-pu-Bwq" collectionClass="NSMutableArray" id="YjT-xa-Yif"/>
+                        <outletCollection property="wind" destination="3Nk-Tf-4es" collectionClass="NSMutableArray" id="HcU-jD-DAq"/>
+                        <outletCollection property="info" destination="pDc-1v-FS8" collectionClass="NSMutableArray" id="jb1-kg-VLm"/>
+                        <outletCollection property="iconWeather" destination="lTS-nD-xPN" collectionClass="NSMutableArray" id="ycN-F1-oQd"/>
+                        <outletCollection property="descriptionWeather" destination="0Vj-Sf-iwA" collectionClass="NSMutableArray" id="1h2-Kw-DAI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2v-iq-2xa" userLabel="First Responder" sceneMemberID="firstResponder"/>

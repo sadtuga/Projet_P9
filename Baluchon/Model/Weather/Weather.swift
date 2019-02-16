@@ -11,7 +11,7 @@ import Foundation
 
 class WeatherService {
     
-    private var weatherSession: URLSession // Stock a URLSessions
+    private var weatherSession = URLSession(configuration: .default) // Stock a URLSessions
     private var task: URLSessionDataTask?  // Stock a URLSessionsDataTask
     
     init(weatherSession: URLSession = URLSession(configuration: .default)) {
@@ -19,8 +19,7 @@ class WeatherService {
     }
     
     // Send a request to the OpenWeatherMap API and return this response
-    func getWeather(city: String, callback: @escaping (Bool, WeatherInfo?) -> Void) {
-        task?.cancel()
+    func getWeather(city: String, callback: @escaping (Bool, WeatherInfo?) -> Void) { 
         let encodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(encodedCity)&APPID=c36ebc3d6679d56f96c5f0ae011af988&units=metric")!
             task = weatherSession.dataTask(with: url) { (data, response, error) in
