@@ -64,6 +64,8 @@ class ExchangeRate {
         buffer.insert(".", at: index!)
         let indexToDelete = buffer.index(after: index!)
         buffer.remove(at: indexToDelete)
+        buffer = buffer.replacingOccurrences(of: ",", with: "")
+        print(buffer)
         return buffer
     }
     

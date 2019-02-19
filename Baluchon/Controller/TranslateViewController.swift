@@ -19,6 +19,9 @@ class TranslateViewController: UIViewController {
     private var translate = Translate() // Stock the instance of the Translate class
     private var index: Int = 0 // Stock index of UIPickerView
     
+    override func viewDidLoad() {
+    }
+    
     // Removes the keyboard and stores the text entered in the text variable
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         text.resignFirstResponder()
@@ -27,12 +30,18 @@ class TranslateViewController: UIViewController {
     // Manages the data received by the API
     @IBAction func didTapeTranslateButton(_ sender: Any) {
         index = UIPicker.selectedRow(inComponent: 0)
+        
+        guard text.text != "" else {
+            alert(title: "ERREUR", message: "Aucun texte saisi")
+            return
+        }
+        
         hideButton(button: translateButton, activityIndicator: translateActivityIndicator)
         translate.translate(Index: index, text: text.text) { (success, translatedText) in
             if success == true {
                 self.refreshScreen(text: translatedText!, textView: self.translation)
             } else {
-                self.alert(title: "Erreur", message: "erreur reseau")
+                self.alert(title: "Erreur", message: "Erreur reseau")
             }
         }
         displayButton(button: translateButton, activityIndicator: translateActivityIndicator)

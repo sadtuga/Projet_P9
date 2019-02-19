@@ -30,9 +30,13 @@ class WeatherViewController: UIViewController {
     // Manages the data received by the API
     @IBAction func didTapeWeatherForecastButton(_ sender: Any) {
         
-        guard destination[0].text != "", destination[1].text != "" else {
+        guard destination[0].text != "" else {
             alert(title: "Erreur", message: "Aucune destination saisis")
             return
+        }
+        
+        if destination[1].text == "" {
+            destination[1].text = "Grenoble"
         }
         
         hideButton(button: forecastButton, activityIndicator: weatherActivityIndicator)

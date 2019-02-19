@@ -26,14 +26,14 @@ class ExchangeRateViewController: UIViewController {
     
     // Manages the data received by the API
     @IBAction func didTapeConvertButton() {
-        guard sum.text != "" else {
+        guard sum.text != "", sum.text != "," else {
             alert(title: "Erreur", message: "Aucun montant saisis")
             return
         }
         hideButton(button: convertButton, activityIndicator: rateActivityIndicator)
         currency.getRate { (success, rate) in
             guard success == true else {
-                self.alert(title: "Erreur", message: "erreur reseau")
+                self.alert(title: "Erreur", message: "Erreur reseau")
                 return
             }
             self.convert(rate: rate!)
