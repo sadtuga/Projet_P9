@@ -37,7 +37,6 @@ class Translate {
                 }
                 guard let responseJSON = try? JSONDecoder().decode(Translation.self, from: data),
                     let textTranslated = responseJSON.data.translations[0].translatedText else {
-                        print("Erreur")
                         callback(false, nil)
                         return
                 }

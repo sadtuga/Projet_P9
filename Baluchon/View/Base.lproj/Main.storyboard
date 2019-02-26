@@ -324,21 +324,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBU-uJ-XVy">
-                                <rect key="frame" x="122.5" y="531" width="130" height="75"/>
-                                <color key="backgroundColor" red="0.18270236249999999" green="0.39540398119999998" blue="0.58041697739999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="UL4-5N-AY0"/>
-                                    <constraint firstAttribute="width" secondItem="TBU-uJ-XVy" secondAttribute="height" multiplier="26:15" id="cxT-bm-Y7s"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Weather forecast">
-                                    <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapeWeatherForecastButton:" destination="db1-iX-30F" eventType="touchUpInside" id="0uf-ZO-rc1"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="T9j-VS-fJr">
                                 <rect key="frame" x="177.5" y="558.5" width="20" height="20"/>
                             </activityIndicatorView>
@@ -536,16 +521,31 @@
                                     <constraint firstItem="2Et-LB-jfi" firstAttribute="top" secondItem="lGI-wG-Kc9" secondAttribute="top" constant="8" id="zWy-KW-5Lg"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBU-uJ-XVy">
+                                <rect key="frame" x="110" y="536" width="155" height="65"/>
+                                <color key="backgroundColor" red="0.18270236249999999" green="0.39540398119999998" blue="0.58041697739999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="MxK-R0-YLf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="155" id="xrE-ke-tJ8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Weather forecast">
+                                    <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapeWeatherForecastButton:" destination="db1-iX-30F" eventType="touchUpInside" id="0uf-ZO-rc1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="T9j-VS-fJr" firstAttribute="centerX" secondItem="TBU-uJ-XVy" secondAttribute="centerX" id="1nl-dA-NxX"/>
                             <constraint firstItem="b9H-Ej-VCE" firstAttribute="top" secondItem="lGI-wG-Kc9" secondAttribute="bottom" constant="32" id="71a-Gj-5lN"/>
-                            <constraint firstItem="tFY-GH-GSn" firstAttribute="bottom" secondItem="TBU-uJ-XVy" secondAttribute="bottom" constant="12" id="EcP-HL-l10"/>
-                            <constraint firstItem="T9j-VS-fJr" firstAttribute="centerY" secondItem="TBU-uJ-XVy" secondAttribute="centerY" id="Rnn-Fj-3BV"/>
+                            <constraint firstItem="tFY-GH-GSn" firstAttribute="bottom" secondItem="TBU-uJ-XVy" secondAttribute="bottom" constant="17" id="BIh-U2-dNJ"/>
                             <constraint firstItem="TBU-uJ-XVy" firstAttribute="centerX" secondItem="xob-iM-Q3y" secondAttribute="centerX" id="Rxa-Zl-pSx"/>
                             <constraint firstItem="lGI-wG-Kc9" firstAttribute="leading" secondItem="tFY-GH-GSn" secondAttribute="leading" constant="16" id="Tib-zX-FoI"/>
+                            <constraint firstItem="T9j-VS-fJr" firstAttribute="centerY" secondItem="TBU-uJ-XVy" secondAttribute="centerY" id="UVV-tM-I15"/>
                             <constraint firstItem="tFY-GH-GSn" firstAttribute="trailing" secondItem="b9H-Ej-VCE" secondAttribute="trailing" constant="16" id="nps-Mp-PQr"/>
                             <constraint firstItem="tFY-GH-GSn" firstAttribute="trailing" secondItem="lGI-wG-Kc9" secondAttribute="trailing" constant="16" id="q4w-vM-EgB"/>
                             <constraint firstItem="b9H-Ej-VCE" firstAttribute="leading" secondItem="tFY-GH-GSn" secondAttribute="leading" constant="16" id="q78-fP-jCU"/>

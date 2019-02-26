@@ -101,8 +101,8 @@
 		A01B0FE322007ADD00E30416 /* ExchangeRateTest */ = {
 			isa = PBXGroup;
 			children = (
-				A0A72BE221FF77D7003A5C42 /* Rate.json */,
 				A0A72BE021FF5B24003A5C42 /* ExchangeRateModelTestCase.swift */,
+				A0A72BE221FF77D7003A5C42 /* Rate.json */,
 			);
 			path = ExchangeRateTest;
 			sourceTree = "<group>";

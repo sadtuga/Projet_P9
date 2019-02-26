@@ -13,24 +13,18 @@ class ExchangeRateModelTestCase: XCTestCase {
     
     let exchangeRate = ExchangeRate()
     var sum: String = ""
-    var rate: Float = 0
+    var rate: Double = 0
 
     func testGivenAnAmountHasBeenSeized_WhenCalculateTheResult_ThenTheResultIsCalculated() {
-        sum = "12.54"
-        rate = 1.143543
-        
-        let result = exchangeRate.convertCurrency(sum: sum, rate: rate)
-        
-        XCTAssertEqual("14.340029", result)
+        let sum = "12.54"
+        let result = exchangeRate.convert(sum: sum)
+        XCTAssertEqual(12.54, result)
     }
     
     func testGivenTheAmountCannotBeConverted_WhenWeModifyIt_ThenWeGetTheRightResult() {
-        sum = "12,54"
-        rate = 1.143543
-        
-        let result = exchangeRate.convertCurrency(sum: sum, rate: rate)
-        
-        XCTAssertEqual("14.340029", result)
+        let sum = "12,54"
+        let result = exchangeRate.convert(sum: sum)
+        XCTAssertEqual(12.54, result)
     }
     
     func testGetRateShouldPostFailedCallbackIfError() {
