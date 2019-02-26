@@ -40,4 +40,16 @@ extension UIViewController {
     func refreshScreen(text: String, textView: UITextView) {
         textView.text = text
     }
+    
+    @objc func networkError() {
+        alert(title: "Erreur réseau!", message: "Vérifier votre connexion!")
+    }
+    
+    @objc func incorrectServerResponse() {
+        alert(title: "Réponse serveur incorrect!", message: "Le serveur a renvoyé une erreur!")
+    }
+    
+    @objc func dataUnreadable() {
+        alert(title: "Data illisible!", message: "Les donner reçu n'est pas utilisable!")
+    }
 }

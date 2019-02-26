@@ -20,6 +20,14 @@ class TranslateViewController: UIViewController {
     private var index: Int = 0 // Stock index of UIPickerView
     
     override func viewDidLoad() {
+        let firstNotif = Notification.Name(rawValue: "Erreur réseau!")
+        NotificationCenter.default.addObserver(self, selector: #selector(networkError), name: firstNotif, object: nil)
+        
+        let secondNotif = Notification.Name(rawValue: "Réponse serveur incorrect!")
+        NotificationCenter.default.addObserver(self, selector: #selector(incorrectServerResponse), name: secondNotif, object: nil)
+        
+        let thirdNotif = Notification.Name(rawValue: "Data illisible!")
+        NotificationCenter.default.addObserver(self, selector: #selector(dataUnreadable), name: thirdNotif, object: nil)
     }
     
     // Removes the keyboard and stores the text entered in the text variable

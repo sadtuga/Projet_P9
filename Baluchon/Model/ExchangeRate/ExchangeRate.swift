@@ -27,15 +27,18 @@ class ExchangeRate {
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(false, nil)
+                    self.notification(message: "Erreur réseau!")
                     return
                 }
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     callback(false, nil)
+                    self.notification(message: "Réponse serveur incorrect!")
                     return
                 }
                 guard let responseJSON = try? JSONDecoder().decode(Currency.self, from: data),
                     let rate = responseJSON.rates["USD"] else {
                         callback(false, nil)
+                        self.notification(message: "Data illisible!")
                         return
                 }
                 callback(true, rate)
@@ -66,6 +69,13 @@ class ExchangeRate {
         buffer.remove(at: indexToDelete)
         buffer = buffer.replacingOccurrences(of: ",", with: "")
         return buffer
+    }
+    
+    // Send a notification
+    private func notification(message: String) {
+        let name = Notification.Name(message)
+        let notification = Notification(name: name)
+        NotificationCenter.default.post(notification)
     }
     
 }

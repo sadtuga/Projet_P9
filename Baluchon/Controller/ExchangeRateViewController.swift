@@ -19,6 +19,17 @@ class ExchangeRateViewController: UIViewController {
     
     private var currency = ExchangeRate() // Stock the instance of the ExchangeRate class
     
+    override func viewDidLoad() {
+        let firstNotif = Notification.Name(rawValue: "Erreur réseau!")
+        NotificationCenter.default.addObserver(self, selector: #selector(networkError), name: firstNotif, object: nil)
+        
+        let secondNotif = Notification.Name(rawValue: "Réponse serveur incorrect!")
+        NotificationCenter.default.addObserver(self, selector: #selector(incorrectServerResponse), name: secondNotif, object: nil)
+        
+        let thirdNotif = Notification.Name(rawValue: "Data illisible!")
+        NotificationCenter.default.addObserver(self, selector: #selector(dataUnreadable), name: thirdNotif, object: nil)
+    }
+    
     // Removes the keyboard and stores the text entered in the sum variable
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         sum.resignFirstResponder()
@@ -33,7 +44,7 @@ class ExchangeRateViewController: UIViewController {
         hideButton(button: convertButton, activityIndicator: rateActivityIndicator)
         currency.getRate { (success, rate) in
             guard success == true else {
-                self.alert(title: "Erreur", message: "Erreur reseau")
+                //self.alert(title: "Erreur", message: "Erreur reseau")
                 return
             }
             self.convert(rate: rate!)

@@ -29,15 +29,18 @@ class Translate {
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(false, nil)
+                    self.notification(message: "Erreur réseau!")
                     return
                 }
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     callback(false, nil)
+                    self.notification(message: "Réponse serveur incorrect!")
                     return
                 }
                 guard let responseJSON = try? JSONDecoder().decode(Translation.self, from: data),
                     let textTranslated = responseJSON.data.translations[0].translatedText else {
                         callback(false, nil)
+                        self.notification(message: "Data illisible!")
                         return
                 }
                 callback(true, textTranslated)
@@ -74,5 +77,12 @@ class Translate {
         default:
             print("erreur selectedLanguage")
         }
+    }
+    
+    // Send a notification
+    private func notification(message: String) {
+        let name = Notification.Name(message)
+        let notification = Notification(name: name)
+        NotificationCenter.default.post(notification)
     }
 }
