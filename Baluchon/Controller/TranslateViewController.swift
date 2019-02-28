@@ -15,19 +15,14 @@ class TranslateViewController: UIViewController {
     @IBOutlet weak var UIPicker: UIPickerView!
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var translateActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var sourceLanguage: UILabel!
+    @IBOutlet weak var languageTranslation: UILabel!
     
     private var translate = Translate() // Stock the instance of the Translate class
     private var index: Int = 0 // Stock index of UIPickerView
     
     override func viewDidLoad() {
-        let firstNotif = Notification.Name(rawValue: "Erreur réseau!")
-        NotificationCenter.default.addObserver(self, selector: #selector(networkError), name: firstNotif, object: nil)
-        
-        let secondNotif = Notification.Name(rawValue: "Réponse serveur incorrect!")
-        NotificationCenter.default.addObserver(self, selector: #selector(incorrectServerResponse), name: secondNotif, object: nil)
-        
-        let thirdNotif = Notification.Name(rawValue: "Data illisible!")
-        NotificationCenter.default.addObserver(self, selector: #selector(dataUnreadable), name: thirdNotif, object: nil)
+        createObserver()
     }
     
     // Removes the keyboard and stores the text entered in the text variable
@@ -54,6 +49,23 @@ class TranslateViewController: UIViewController {
         }
         displayButton(button: translateButton, activityIndicator: translateActivityIndicator)
     }
+    
+    // Modify the interface text to match the UIPickerView
+    private func changeLanguage(index: Int) {
+        switch index {
+        case 0:
+            sourceLanguage.text = "Français"
+            languageTranslation.text = "Anglais"
+        case 1:
+            sourceLanguage.text = "Anglais"
+            languageTranslation.text = "Français"
+        case 2:
+            sourceLanguage.text = "Detectable"
+            languageTranslation.text = "Français"
+        default:
+            break
+        }
+    }
 
 }
 
@@ -71,6 +83,7 @@ extension TranslateViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     
     // Returns the value corresponding to the request line of UIPickerView
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        changeLanguage(index: row)
         return language[row]
     }
 }

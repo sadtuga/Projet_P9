@@ -22,14 +22,7 @@ class WeatherViewController: UIViewController {
     var weather = WeatherService() // Stock the instance of the WeatherService class
     
     override func viewDidLoad() {
-        let firstNotif = Notification.Name(rawValue: "Erreur réseau!")
-        NotificationCenter.default.addObserver(self, selector: #selector(networkError), name: firstNotif, object: nil)
-        
-        let secondNotif = Notification.Name(rawValue: "Réponse serveur incorrect!")
-        NotificationCenter.default.addObserver(self, selector: #selector(incorrectServerResponse), name: secondNotif, object: nil)
-        
-        let thirdNotif = Notification.Name(rawValue: "Data illisible!")
-        NotificationCenter.default.addObserver(self, selector: #selector(dataUnreadable), name: thirdNotif, object: nil)
+        createObserver()
     }
     
     // Removes the keyboard and stores the text entered in the destination variable
@@ -40,16 +33,8 @@ class WeatherViewController: UIViewController {
     
     // Manages the data received by the API
     @IBAction func didTapeWeatherForecastButton(_ sender: Any) {
-        
-        guard destination[0].text != "" else {
-            alert(title: "Erreur", message: "Aucune destination saisis")
-            return
-        }
-        
-        if destination[1].text == "" {
-            destination[1].text = "Grenoble"
-        }
-        
+        defaultSetting()
+
         hideButton(button: forecastButton, activityIndicator: weatherActivityIndicator)
 
         for i in 0...1 {
@@ -63,6 +48,15 @@ class WeatherViewController: UIViewController {
         }
         
         displayButton(button: forecastButton, activityIndicator: weatherActivityIndicator)
+    }
+    
+    // Default setting
+    private func defaultSetting() {
+        if destination[0].text == "" {
+            destination[0].text = "New York"
+        }else if destination[1].text == "" {
+            destination[1].text = "Grenoble"
+        }
     }
     
     // Shows weather information

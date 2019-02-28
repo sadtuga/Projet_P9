@@ -21,7 +21,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="N7r-hM-tuc" userLabel="Translation View">
                                 <rect key="frame" x="66.5" y="259.5" width="243" height="157"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Translation:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzG-f7-ulc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anglais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzG-f7-ulc">
                                         <rect key="frame" x="0.0" y="0.0" width="243" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -41,7 +41,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="cXl-hs-PZ3" userLabel="Text View">
                                 <rect key="frame" x="67" y="84" width="241" height="155.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzg-Xb-LYn">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Français" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzg-Xb-LYn">
                                         <rect key="frame" x="0.0" y="0.0" width="241" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -112,6 +112,8 @@
                     <navigationItem key="navigationItem" title="Translate" id="lkl-Du-1is"/>
                     <connections>
                         <outlet property="UIPicker" destination="m8Z-jU-y0B" id="HXd-EF-Nby"/>
+                        <outlet property="languageTranslation" destination="XzG-f7-ulc" id="h5T-tZ-olM"/>
+                        <outlet property="sourceLanguage" destination="Bzg-Xb-LYn" id="9di-5G-q2X"/>
                         <outlet property="text" destination="gQz-KF-ZAm" id="3dW-kZ-pbk"/>
                         <outlet property="translateActivityIndicator" destination="7ha-xi-LcW" id="Npc-G2-6fa"/>
                         <outlet property="translateButton" destination="Fsc-SI-rwN" id="9YR-IL-fKI"/>
@@ -436,7 +438,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex: Paris" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-Oj-99X">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New York" borderStyle="roundedRect" placeholder="ex: Paris" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-Oj-99X">
                                                 <rect key="frame" x="0.0" y="25.5" width="125" height="27"/>
                                                 <color key="backgroundColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
